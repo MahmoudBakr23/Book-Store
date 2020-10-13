@@ -13,3 +13,99 @@
  *= require_tree .
  *= require_self
  */
+
+ a,
+ a:focus,
+ a:hover {
+   color: #fff;
+   text-decoration: none;
+ }
+
+ .btn-secondary,
+ .btn-secondary:hover,
+ .btn-secondary:focus {
+   color: #333;
+   text-shadow: none; /* Prevent inheritance from `body` */
+   background-color: #fff;
+   border: .05rem solid #fff;
+ }
+
+ html,
+ body {
+   background-color: #333;
+   color: #fff;
+ }
+
+ body {
+   font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .masthead {
+    margin-bottom: 2rem;
+    height: 100px;
+  }
+  
+  .masthead-brand {
+    margin-bottom: 0;
+  }
+  
+  .nav-masthead .nav-link,
+  .dropdown .dropdown-toggle {
+    padding: .25rem 0;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .5);
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+  }
+  
+  .nav-masthead .nav-link:hover,
+  .nav-masthead .nav-link:focus {
+    border-bottom-color: rgba(255, 255, 255, .25);
+  }
+  
+  .nav-masthead .nav-link + .nav-link,
+  .dropdown .dropdown-toggle {
+    margin-left: 1rem;
+  }
+  
+  .nav-masthead .active {
+    color: #fff;
+    border-bottom-color: #fff;
+  }
+
+  footer {
+    background-color: #fff;
+    color: #333;
+    height: 60px;
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  #books-index h4 {
+    height: 50px;
+  }
+
+  #books-show h2 {
+    background: #666;
+    padding: 10px;
+  }
+
+  .books-show-left {
+    float: left;
+    width: 40%;
+  }
+
+  .books-show-right {
+    float: left;
+    width: 60%;
+    margin-top: 10px;
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 600px) {
+    .index-list .inex-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
