@@ -1,2 +1,16 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<% if Category.all.empty? %>
+    <p>There's no categories yet, go ahead and add few!</p><br /><br />
+<% end %>
+<div class="container mx-4 mb-5">
+    <%= link_to  "Add new Category", new_category_path, class: "btn btn-success h-25" %>
+</div>
+<% @categories.each do |c| %>
+    <ul class="index-list">
+        <li class="index-item">
+            <%= link_to c.name, category_path(c), class: "list-group-item bg-dark h-25 w-25" %>
+            <p class="m-0 lead py-2"><%= c.books.count %> books</p>
+            <%= link_to  "Add new book to this category", new_book_path, class: "btn btn-primary" %>
+            <%= link_to  "Delete", category_path(c), method: :delete, data: { confirm: 'This will delete all books related to this category. Are you sure?' }, class: "btn btn-danger" %>
+        </li>
+    </ul>
+<% end %>
