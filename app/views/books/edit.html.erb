@@ -1,2 +1,66 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<h1>Update <small><%= @book.title %></small></h1>
+
+<%= form_for (@book) do |f| %>
+    <div class="form-group">
+        <%= f.label :title, "Book Name" %><br />
+        <%= f.text_field :title, class: "form-control" %><br />
+    </div>
+
+    <div class="form-group">
+        <%= f.label :isbn, "ISBN" %><br />
+        <%= f.text_field :isbn, class: "form-control" %><br />
+    </div>
+
+    <div class="form-group">
+        <%= f.label :category, "Select Category" %><br />
+        <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Select One'}, class:"form-control"%><br /><br />
+    </div>
+
+    <div class="form-group">
+        <%= f.label :author, "Author" %><br />
+        <%= f.select :author_id, Author.all.collect {|x| [x.first_name + ' ' + x.last_name, x.id]}, {:include_blank => 'Select One'}, class:"form-control"%><br /><br />
+    </div>
+
+    <div class="form-group">
+        <%= f.label :publisher, "Publisher" %><br />
+        <%= f.select :publisher_id, Publisher.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Select One'}, class:"form-control"%><br /><br />
+    </div>
+
+    <div class="form-group">
+        <%= f.label :year, "Year" %><br />
+        <%= f.number_field :year, class: "form-control" %><br />
+    </div>
+
+    <div class="form-group">
+        <%= f.label :format, "Format" %><br />
+        <%= f.text_field :format, class: "form-control" %><br />
+    </div>
+    
+    <div class="form-group">
+        <%= f.label :excerpt, "Excerpt" %><br />
+        <%= f.text_area :excerpt, class: "form-control" %><br />
+    </div>
+
+    <div class="form-group">
+        <%= f.label :pages, "Pages" %><br />
+        <%= f.number_field :pages, class: "form-control" %><br />
+    </div>
+
+    <div class="form-group">
+        <%= f.label :price, "Price" %><br />
+        <%= f.text_field :price, class: "form-control" %><br />
+    </div>
+
+    <div class="form-group">
+        <%= f.label :buy, "Buy" %><br />
+        <%= f.text_field :buy, class: "form-control" %><br />
+    </div>
+
+    <div class="form-group">
+        <%= f.label :image, "Upload book image" %><br />
+        <%= f.file_field :image %>
+    </div>
+
+    <%= f.submit "Update", class: "btn btn-primary" %>
+    <%= link_to  "Cancel", root_path, class: "btn btn-danger" %>
+<% end %>
