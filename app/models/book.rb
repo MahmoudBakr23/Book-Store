@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
-    belongs_to :category
-    belongs_to :author
-    belongs_to :publisher
+    belongs_to :publisher, class_name: "Publisher", foreign_key: "publisher_id"
+    belongs_to :category, class_name: "Category", foreign_key: "category_id"
+    belongs_to :author, class_name: "Author", foreign_key: "author_id"
     validates :title, presence: true, uniqueness: true, length: {minimum:3, maximum:25}
     validates :isbn, presence: true
     validates :year, presence: true
