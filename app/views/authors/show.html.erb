@@ -1,2 +1,26 @@
-<h1>Authors#show</h1>
-<p>Find me in app/views/authors/show.html.erb</p>
+<h1><%=@author.first_name + ' ' + @author.last_name%></h1>
+<%= link_to  "Update Author", edit_author_path, class: "btn btn-primary mb-3" %>
+<div id="books-index">
+    <div class="row">
+        <% if @author.books.empty? %>
+            <div class="py-3 col-12">
+                <p>This author has no books yet!</p>
+                <%= link_to  "Add a Book", new_book_path, class: "btn btn-success" %>
+            </div>
+        <% else %>
+            <div class="col-12">
+                <%= link_to  "Add another Book", new_book_path, class: "btn btn-success" %>
+            </div>
+            <% @author.books.each do |book| %>
+                <div class="py-3 col-md-4 col-sm-3">
+                    <h4><%= book.title %></h4>
+                    <%= image_tag book.image.url, class: "w-100 h-75" %>
+                    <div class="d-flex">
+                        <%= link_to  "Read More", book_path(book), class: "btn btn-primary w-75 mt-2 mr-1" %>
+                        <%= link_to  "Delete", book_path(book), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger w-25 mt-2 px-1" %>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</div>
