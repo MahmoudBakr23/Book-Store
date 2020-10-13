@@ -1,2 +1,27 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1><%=@category.name%></h1>
+<%= link_to  "Update Category", edit_category_path, class: "btn btn-primary mb-3" %>
+
+<div id="books-index">
+    <div class="row">
+        <% if @category.books.empty? %>
+            <div class="py-3 col-12">
+                <p>This category has no books yet!</p>
+                <%= link_to  "Add One", new_book_path, class: "btn btn-success" %>
+            </div>
+        <% else %>
+            <div class="col-12">
+                <%= link_to  "Add another Book", new_book_path, class: "btn btn-success" %>
+            </div>
+            <% @category.books.each do |book| %>
+                <div class="py-3 col-md-4 col-sm-3">
+                    <h4><%= book.title %></h4>
+                    <%= image_tag book.image.url, class: "w-100 h-75" %>
+                    <div class="d-flex">
+                        <%= link_to  "Read More", book_path(book), class: "btn btn-primary w-75 mt-2 mr-1" %>
+                        <%= link_to  "Delete", book_path(book), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger w-25 mt-2 px-1" %>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</div>
