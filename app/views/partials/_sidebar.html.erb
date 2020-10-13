@@ -1,0 +1,36 @@
+<%if params[:controller] == 'about'%>
+<div class="well">
+	<h3>Location Info</h3>
+	<ul>
+		<li>The BookStore</li>
+		<li>15, st.leave-me-alone, Alex, Egypt</li>
+		<li>P.C: 22511</li>
+		<li>Phone: +20 1146 467 077</li>
+		<li>Email: bksh@bksh.com</li>
+	</ul>
+</div>
+<% end %>
+
+<% if params[:controller] == 'books' %>
+<% if Category.all.empty? %>
+	<p>No categories yet, go add some</p>
+    <%= link_to  "Add new Category", new_category_path, class: "btn btn-success mt-5" %>
+<% else %>
+<div class="list-group">
+	<% Category.all.each do |category| %>
+		<%if Category.all.count <= 20 %>
+			<%= link_to category.name, category_path(category), class: "list-group-item bg-dark" %>
+		<% end %>
+	<% end %>
+	<% if Category.all.count >= 20 %>
+		<% array = Category.all.take(20) %>
+		<% array.each do |c| %>
+			<%= link_to c.name, category_path(c), class: "list-group-item bg-dark" %>
+		<% end %>
+	<% end %>
+	<% if Category.all.count >= 20 %>
+		<%= link_to  "See More", categories_path, class: "btn btn-outline bg-white" %>
+	<% end %>
+</div>
+<% end %>
+<% end %>
