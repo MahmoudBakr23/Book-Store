@@ -1,2 +1,11 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<h2>Add New Category</h2>
+
+<%= form_for (@category) do |f| %>
+    <div class="form-group">
+        <%= f.label :name, "Category Name" %><br />
+        <%= f.text_field :name, class: "form-control" %><br />
+    </div>
+
+    <%= f.submit "Create Category", class:"btn btn-primary" %>
+    <%= link_to  "Cancel", categories_path, class:"btn btn-danger" %>
+<% end %>
