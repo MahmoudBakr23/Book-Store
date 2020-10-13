@@ -25,7 +25,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'paperclip', '~> 6.1'
+gem 'execjs', '~> 2.7'
+gem 'libv8', '~> 3.16.14.15'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
