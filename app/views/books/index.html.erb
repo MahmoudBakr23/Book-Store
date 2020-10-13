@@ -1,2 +1,18 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div id="books-index">
+    <% if Book.all.empty? %>
+        <p>There's no books yet, go ahead and add few!</p><br /><br />
+        <%= link_to  "Add new Book", new_book_path, class: "btn btn-primary" %>
+    <% end %>
+    <div class="row">
+    <% @books.each do |book| %>
+        <div class="py-3 col-md-4 col-sm-3">
+            <h4><%= book.title %></h4>
+            <%= image_tag book.image.url, class: "w-100 h-75" %>
+            <div class="d-flex">
+                <%= link_to  "Read More", book_path(book), class: "btn btn-primary w-75 mt-2 mr-1" %>
+                <%= link_to  "Delete", book_path(book), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger w-25 mt-2 px-1" %>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>
