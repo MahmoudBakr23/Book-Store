@@ -1,2 +1,16 @@
-<h1>Authors#edit</h1>
-<p>Find me in app/views/authors/edit.html.erb</p>
+<h1>Update <small><%= @author.first_name + ' ' + @author.last_name %></small></h1>
+
+<%= form_for (@author) do |f| %>
+    <div class="form-group">
+        <%= f.label :first_name, "First Name" %><br />
+        <%= f.text_field :first_name, class: "form-control" %><br />
+    </div>
+
+    <div class="form-group">
+        <%= f.label :last_name, "Last Name" %><br />
+        <%= f.text_field :last_name, class: "form-control" %><br />
+    </div>
+
+    <%= f.submit "Create Author", class:"btn btn-primary" %>
+    <%= link_to  "Cancel", authors_path, class:"btn btn-danger" %>
+<% end %>
