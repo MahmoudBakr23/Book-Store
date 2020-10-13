@@ -1,2 +1,11 @@
-<h1>Publishers#new</h1>
-<p>Find me in app/views/publishers/new.html.erb</p>
+<h2>Add New Publisher</h2>
+
+<%= form_for (@publisher) do |f| %>
+    <div class="form-group">
+        <%= f.label :name, "Publisher Name" %><br />
+        <%= f.text_field :name, class: "form-control" %><br />
+    </div>
+
+    <%= f.submit "Create Publisher", class:"btn btn-primary" %>
+    <%= link_to  "Cancel", publishers_path, class:"btn btn-danger" %>
+<% end %>
