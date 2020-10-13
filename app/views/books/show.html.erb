@@ -1,2 +1,23 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div id="books-show">
+    <h2><%=@book.title%></h2>
+    <div class="books-show-left">
+        <%= image_tag @book.image.url, class: "w-100 pr-5" %>
+    </div>
+    <div class="books-show-right">
+        <h3>Book info:</h3>
+        <ul>
+            <li><strong>Category: </strong><%=@book.category.name%></li>
+            <li><strong>Author: </strong><%=@book.author.first_name + ' ' + @book.author.last_name%></li>
+            <li><strong>Publisher: </strong><%=@book.publisher.name%></li>
+            <li><strong>Year: </strong><%=@book.year%></li>
+            <li><strong>ISBN: </strong><%=@book.isbn%></li>
+            <li><strong>Format: </strong><%=@book.format%></li>
+            <li><strong>Pages: </strong><%=@book.pages%></li>
+        </ul>
+        <%= link_to  "Priceless $$", '#', class: "btn btn-success my-5" %>
+    </div>
+    <div class="clearfix">
+        <h4>Excerpt</h4>
+        <p><%=@book.excerpt%></p>
+    </div>
+</div>
