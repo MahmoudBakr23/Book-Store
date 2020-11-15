@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip', '~> 6.1'
+gem 'paperclip-cloudinary'
+gem 'cloudinary', require: false
 gem 'execjs', '~> 2.7'
 gem 'libv8', '~> 3.16.14.15'
 # Use ActiveStorage variant

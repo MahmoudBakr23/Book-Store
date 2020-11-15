@@ -8,7 +8,9 @@ class Book < ApplicationRecord
     validates :price, presence: true
     validates :buy, presence: true
     validates :excerpt, presence: true
-    has_attached_file :image
+    has_attached_file :image,
+      :storage => :cloudinary,
+      :path => ':class/:id/:style/:filename'
     validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
     validates :image_file_name, presence: true
   end

@@ -1,0 +1,13 @@
+---
+development:
+  cloud_name: bksh
+  api_key: '673549748923418'
+  api_secret: 51cUFRjtYNJDdeiz3eVogsCCzfM
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: bksh
+  api_key: '673549748923418'
+  api_secret: 51cUFRjtYNJDdeiz3eVogsCCzfM
+  enhance_image_tag: true
+  static_file_support: true
