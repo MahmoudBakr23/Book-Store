@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_191357) do
+ActiveRecord::Schema.define(version: 2020_11_15_210746) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
@@ -28,9 +31,9 @@ ActiveRecord::Schema.define(version: 2020_10_13_191357) do
     t.text "excerpt"
     t.string "format"
     t.integer "pages"
-    t.integer "category_id"
-    t.integer "author_id"
-    t.integer "publisher_id"
+    t.bigint "category_id"
+    t.bigint "author_id"
+    t.bigint "publisher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
@@ -54,4 +57,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_191357) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "books", "authors"
+  add_foreign_key "books", "categories"
+  add_foreign_key "books", "publishers"
 end
